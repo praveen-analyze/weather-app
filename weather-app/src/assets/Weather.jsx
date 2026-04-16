@@ -374,8 +374,15 @@ export const Weather = () => {
           </div>
         </div>
 
-        
-        
+        {/* Footer */}
+        <div className="text-center mt-12 animate-fade-in">
+          <div className="inline-flex items-center gap-3 backdrop-blur-sm bg-white/5 rounded-full px-6 py-3 border border-white/10">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <p className="text-white/50 text-xs tracking-widest uppercase" style={{fontFamily: "'Montserrat', sans-serif"}}>
+              Powered by OpenWeatherMap API
+            </p>
+          </div>
+        </div>
       </div>
 
       <style jsx>{`
