@@ -26,10 +26,10 @@ export const Weather = () => {
       setError("Please enter a city name");
       return;
     }
-    
+
     setLoading(true);
     setError("");
-    
+
     axios(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=0efe0b956e513b1217ad609add553e0e&units=metric`
     )
@@ -70,7 +70,7 @@ export const Weather = () => {
 
   const getWeatherGradient = () => {
     if (!weatherData) return "from-slate-900 via-slate-800 to-slate-900";
-    
+
     const weather = weatherData.weather.toLowerCase();
     if (weather.includes("clear")) return timeOfDay === "night" ? "from-indigo-950 via-blue-950 to-slate-950" : "from-sky-400 via-blue-500 to-indigo-600";
     if (weather.includes("cloud")) return "from-slate-500 via-gray-600 to-slate-700";
@@ -82,10 +82,10 @@ export const Weather = () => {
   };
 
   const formatTime = (timestamp) => {
-    return new Date(timestamp * 1000).toLocaleTimeString('en-US', { 
-      hour: '2-digit', 
+    return new Date(timestamp * 1000).toLocaleTimeString('en-US', {
+      hour: '2-digit',
       minute: '2-digit',
-      hour12: true 
+      hour12: true
     });
   };
 
@@ -97,65 +97,65 @@ export const Weather = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-float-delay"></div>
         {weatherData?.weather.toLowerCase().includes("rain") && (
           <>
-            <div className="rain-drop" style={{left: "10%", animationDelay: "0s"}}></div>
-            <div className="rain-drop" style={{left: "20%", animationDelay: "0.2s"}}></div>
-            <div className="rain-drop" style={{left: "30%", animationDelay: "0.4s"}}></div>
-            <div className="rain-drop" style={{left: "40%", animationDelay: "0.1s"}}></div>
-            <div className="rain-drop" style={{left: "50%", animationDelay: "0.3s"}}></div>
-            <div className="rain-drop" style={{left: "60%", animationDelay: "0.5s"}}></div>
-            <div className="rain-drop" style={{left: "70%", animationDelay: "0.2s"}}></div>
-            <div className="rain-drop" style={{left: "80%", animationDelay: "0.4s"}}></div>
-            <div className="rain-drop" style={{left: "90%", animationDelay: "0.1s"}}></div>
+            <div className="rain-drop" style={{ left: "10%", animationDelay: "0s" }}></div>
+            <div className="rain-drop" style={{ left: "20%", animationDelay: "0.2s" }}></div>
+            <div className="rain-drop" style={{ left: "30%", animationDelay: "0.4s" }}></div>
+            <div className="rain-drop" style={{ left: "40%", animationDelay: "0.1s" }}></div>
+            <div className="rain-drop" style={{ left: "50%", animationDelay: "0.3s" }}></div>
+            <div className="rain-drop" style={{ left: "60%", animationDelay: "0.5s" }}></div>
+            <div className="rain-drop" style={{ left: "70%", animationDelay: "0.2s" }}></div>
+            <div className="rain-drop" style={{ left: "80%", animationDelay: "0.4s" }}></div>
+            <div className="rain-drop" style={{ left: "90%", animationDelay: "0.1s" }}></div>
           </>
         )}
         {weatherData?.weather.toLowerCase().includes("snow") && (
           <>
-            <div className="snowflake" style={{left: "10%", animationDelay: "0s"}}>❅</div>
-            <div className="snowflake" style={{left: "25%", animationDelay: "1s"}}>❆</div>
-            <div className="snowflake" style={{left: "40%", animationDelay: "2s"}}>❅</div>
-            <div className="snowflake" style={{left: "55%", animationDelay: "1.5s"}}>❆</div>
-            <div className="snowflake" style={{left: "70%", animationDelay: "0.5s"}}>❅</div>
-            <div className="snowflake" style={{left: "85%", animationDelay: "2.5s"}}>❆</div>
+            <div className="snowflake" style={{ left: "10%", animationDelay: "0s" }}>❅</div>
+            <div className="snowflake" style={{ left: "25%", animationDelay: "1s" }}>❆</div>
+            <div className="snowflake" style={{ left: "40%", animationDelay: "2s" }}>❅</div>
+            <div className="snowflake" style={{ left: "55%", animationDelay: "1.5s" }}>❆</div>
+            <div className="snowflake" style={{ left: "70%", animationDelay: "0.5s" }}>❅</div>
+            <div className="snowflake" style={{ left: "85%", animationDelay: "2.5s" }}>❆</div>
           </>
         )}
       </div>
 
       <div className="w-full max-w-6xl relative z-10">
         {/* Header with Enhanced Typography */}
-        <div className="text-center mb-12 animate-slide-down">
-          <div className="inline-flex items-center gap-4 mb-6">
-            <div className="w-1 h-16 bg-gradient-to-b from-transparent via-white/60 to-transparent"></div>
-            <h1 className="text-8xl font-black tracking-tight text-white drop-shadow-2xl" style={{fontFamily: "'Bebas Neue', sans-serif"}}>
+        <div className="text-center mb-8 md:mb-12 animate-slide-down">
+          <div className="inline-flex items-center gap-2 md:gap-4 mb-4 md:mb-6">
+            <div className="w-1 h-12 md:h-16 bg-gradient-to-b from-transparent via-white/60 to-transparent"></div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white drop-shadow-2xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               ATMOSPHERE
             </h1>
-            <div className="w-1 h-16 bg-gradient-to-b from-transparent via-white/60 to-transparent"></div>
+            <div className="w-1 h-12 md:h-16 bg-gradient-to-b from-transparent via-white/60 to-transparent"></div>
           </div>
-          <p className="text-white/70 text-xl tracking-widest uppercase" style={{fontFamily: "'Montserrat', sans-serif", letterSpacing: "0.3em"}}>
+          <p className="text-white/70 text-lg md:text-xl tracking-widest uppercase px-4" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: "0.3em" }}>
             Global Weather Intelligence
           </p>
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
           {/* Search Panel - Left Column */}
-          <div className="lg:col-span-1 space-y-6">
+          <div className="lg:col-span-1 space-y-4 md:space-y-6">
             {/* Search Card */}
             <div className="backdrop-blur-2xl bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl animate-slide-right hover:bg-white/15 transition-all duration-500">
-              <h3 className="text-white/90 text-sm font-bold tracking-widest uppercase mb-6" style={{fontFamily: "'Montserrat', sans-serif", letterSpacing: "0.2em"}}>
+              <h3 className="text-white/90 text-sm font-bold tracking-widest uppercase mb-6" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: "0.2em" }}>
                 Search Location
               </h3>
-              
+
               <div className="relative mb-4">
                 <input
-                  className="w-full p-5 pl-14 pr-4 rounded-2xl bg-black/30 border-2 border-white/20 focus:outline-none focus:border-white/60 transition-all text-white placeholder-white/40 font-medium text-lg backdrop-blur-sm"
+                  className="w-full p-4 md:p-5 pl-12 md:pl-14 pr-4 rounded-2xl bg-black/30 border-2 border-white/20 focus:outline-none focus:border-white/60 transition-all text-white placeholder-white/40 font-medium text-base md:text-lg backdrop-blur-sm"
                   onChange={handleCity}
                   value={city}
                   placeholder="Enter city..."
                   onKeyDown={handleKeyPress}
-                  style={{fontFamily: "'Montserrat', sans-serif"}}
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
                 />
                 <svg
-                  className="w-6 h-6 text-white/40 absolute left-5 top-1/2 transform -translate-y-1/2"
+                  className="w-5 h-5 md:w-6 md:h-6 text-white/40 absolute left-4 md:left-5 top-1/2 transform -translate-y-1/2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -178,8 +178,8 @@ export const Weather = () => {
               <button
                 onClick={handleReport}
                 disabled={loading}
-                className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white py-5 px-6 rounded-2xl font-bold text-lg transition-all duration-300 border-2 border-white/30 hover:border-white/50 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98] shadow-xl"
-                style={{fontFamily: "'Montserrat', sans-serif"}}
+                className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white py-4 md:py-5 px-6 rounded-2xl font-bold text-base md:text-lg transition-all duration-300 border-2 border-white/30 hover:border-white/50 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98] shadow-xl"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-3">
@@ -197,7 +197,7 @@ export const Weather = () => {
               {/* Error Display */}
               {error && (
                 <div className="mt-6 p-4 bg-red-500/20 border-2 border-red-400/40 rounded-xl backdrop-blur-sm animate-shake">
-                  <p className="text-red-200 font-semibold text-sm" style={{fontFamily: "'Montserrat', sans-serif"}}>⚠ {error}</p>
+                  <p className="text-red-200 font-semibold text-sm" style={{ fontFamily: "'Montserrat', sans-serif" }}>⚠ {error}</p>
                 </div>
               )}
             </div>
@@ -211,18 +211,18 @@ export const Weather = () => {
                       <svg className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-white/70 text-sm font-medium" style={{fontFamily: "'Montserrat', sans-serif"}}>Sunrise</span>
+                      <span className="text-white/70 text-sm font-medium" style={{ fontFamily: "'Montserrat', sans-serif" }}>Sunrise</span>
                     </div>
-                    <span className="text-white font-bold text-lg" style={{fontFamily: "'Montserrat', sans-serif"}}>{formatTime(weatherData.sunrise)}</span>
+                    <span className="text-white font-bold text-lg" style={{ fontFamily: "'Montserrat', sans-serif" }}>{formatTime(weatherData.sunrise)}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <svg className="w-5 h-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                       </svg>
-                      <span className="text-white/70 text-sm font-medium" style={{fontFamily: "'Montserrat', sans-serif"}}>Sunset</span>
+                      <span className="text-white/70 text-sm font-medium" style={{ fontFamily: "'Montserrat', sans-serif" }}>Sunset</span>
                     </div>
-                    <span className="text-white font-bold text-lg" style={{fontFamily: "'Montserrat', sans-serif"}}>{formatTime(weatherData.sunset)}</span>
+                    <span className="text-white font-bold text-lg" style={{ fontFamily: "'Montserrat', sans-serif" }}>{formatTime(weatherData.sunset)}</span>
                   </div>
                 </div>
               </div>
@@ -230,29 +230,29 @@ export const Weather = () => {
           </div>
 
           {/* Main Display - Center & Right Columns */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 md:space-y-6">
             {weatherData && !loading ? (
               <>
                 {/* Hero Weather Card */}
-                <div className="backdrop-blur-2xl bg-white/10 rounded-3xl p-12 border border-white/20 shadow-2xl animate-scale-in relative overflow-hidden">
+                <div className="backdrop-blur-2xl bg-white/10 rounded-3xl p-6 md:p-8 lg:p-12 border border-white/20 shadow-2xl animate-scale-in relative overflow-hidden">
                   {/* Decorative Elements */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-                  
+
                   {/* Location */}
-                  <div className="relative mb-8">
-                    <div className="flex items-center gap-3 mb-2">
-                      <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="relative mb-6 md:mb-8">
+                    <div className="flex items-center gap-2 md:gap-3 mb-2">
+                      <svg className="w-5 h-5 md:w-6 md:h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
-                      <h2 className="text-4xl font-black text-white tracking-tight" style={{fontFamily: "'Bebas Neue', sans-serif"}}>
+                      <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                         {weatherData.cityName}, {weatherData.country}
                       </h2>
                     </div>
-                    <p className="text-white/60 text-sm tracking-widest uppercase ml-9" style={{fontFamily: "'Montserrat', sans-serif", letterSpacing: "0.15em"}}>
-                      {new Date().toLocaleDateString('en-US', { 
-                        weekday: 'long', 
-                        month: 'short', 
+                    <p className="text-white/60 text-xs md:text-sm tracking-widest uppercase ml-7 md:ml-9" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: "0.15em" }}>
+                      {new Date().toLocaleDateString('en-US', {
+                        weekday: 'long',
+                        month: 'short',
                         day: 'numeric',
                         year: 'numeric'
                       })}
@@ -260,43 +260,43 @@ export const Weather = () => {
                   </div>
 
                   {/* Main Temperature */}
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="flex items-center gap-8">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 md:mb-8">
+                    <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                       <img
                         src={`https://openweathermap.org/img/wn/${weatherData.icon}@4x.png`}
                         alt={weatherData.description}
-                        className="w-48 h-48 drop-shadow-2xl animate-float"
+                        className="w-24 h-24 md:w-32 md:h-32 lg:w-48 lg:h-48 drop-shadow-2xl animate-float mx-auto md:mx-0"
                       />
-                      <div>
-                        <div className="text-9xl font-black text-white mb-2 leading-none" style={{fontFamily: "'Bebas Neue', sans-serif"}}>
+                      <div className="text-center md:text-left">
+                        <div className="text-6xl md:text-7xl lg:text-9xl font-black text-white mb-2 leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                           {weatherData.temp}°
                         </div>
-                        <p className="text-3xl font-bold text-white/90 capitalize" style={{fontFamily: "'Montserrat', sans-serif"}}>
+                        <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white/90 capitalize" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                           {weatherData.weather}
                         </p>
-                        <p className="text-white/60 capitalize text-lg mt-1" style={{fontFamily: "'Montserrat', sans-serif"}}>
+                        <p className="text-white/60 capitalize text-sm md:text-base lg:text-lg mt-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                           {weatherData.description}
                         </p>
                       </div>
                     </div>
-                    
+
                     {/* High/Low */}
-                    <div className="text-right">
+                    <div className="text-center md:text-right mt-4 md:mt-0">
                       <div className="mb-4">
-                        <div className="text-white/60 text-xs tracking-widest uppercase mb-1" style={{fontFamily: "'Montserrat', sans-serif"}}>High</div>
-                        <div className="text-5xl font-black text-white" style={{fontFamily: "'Bebas Neue', sans-serif"}}>{weatherData.tempMax}°</div>
+                        <div className="text-white/60 text-xs tracking-widest uppercase mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>High</div>
+                        <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{weatherData.tempMax}°</div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs tracking-widest uppercase mb-1" style={{fontFamily: "'Montserrat', sans-serif"}}>Low</div>
-                        <div className="text-5xl font-black text-white" style={{fontFamily: "'Bebas Neue', sans-serif"}}>{weatherData.tempMin}°</div>
+                        <div className="text-white/60 text-xs tracking-widest uppercase mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>Low</div>
+                        <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{weatherData.tempMin}°</div>
                       </div>
                     </div>
                   </div>
 
                   {/* Feels Like */}
                   <div className="backdrop-blur-sm bg-white/10 rounded-2xl p-4 inline-block border border-white/20">
-                    <span className="text-white/70 text-sm" style={{fontFamily: "'Montserrat', sans-serif"}}>
-                      Feels like <span className="text-white font-bold text-2xl ml-2" style={{fontFamily: "'Bebas Neue', sans-serif"}}>{weatherData.feelsLike}°C</span>
+                    <span className="text-white/70 text-sm" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                      Feels like <span className="text-white font-bold text-2xl ml-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{weatherData.feelsLike}°C</span>
                     </span>
                   </div>
                 </div>
@@ -304,7 +304,7 @@ export const Weather = () => {
                 {/* Detailed Metrics Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {/* Humidity */}
-                  <div className="backdrop-blur-2xl bg-white/10 rounded-2xl p-6 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 animate-fade-in" style={{animationDelay: '0.1s'}}>
+                  <div className="backdrop-blur-2xl bg-white/10 rounded-2xl p-6 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.1s' }}>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-12 h-12 rounded-xl bg-blue-400/20 flex items-center justify-center">
                         <svg className="w-7 h-7 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -312,12 +312,12 @@ export const Weather = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-white/60 text-xs tracking-widest uppercase mb-2" style={{fontFamily: "'Montserrat', sans-serif"}}>Humidity</p>
-                    <p className="text-white text-3xl font-black" style={{fontFamily: "'Bebas Neue', sans-serif"}}>{weatherData.humidity}%</p>
+                    <p className="text-white/60 text-xs tracking-widest uppercase mb-2" style={{ fontFamily: "'Montserrat', sans-serif" }}>Humidity</p>
+                    <p className="text-white text-3xl font-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{weatherData.humidity}%</p>
                   </div>
 
                   {/* Wind */}
-                  <div className="backdrop-blur-2xl bg-white/10 rounded-2xl p-6 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 animate-fade-in" style={{animationDelay: '0.2s'}}>
+                  <div className="backdrop-blur-2xl bg-white/10 rounded-2xl p-6 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.2s' }}>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-12 h-12 rounded-xl bg-cyan-400/20 flex items-center justify-center">
                         <svg className="w-7 h-7 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -325,12 +325,12 @@ export const Weather = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-white/60 text-xs tracking-widest uppercase mb-2" style={{fontFamily: "'Montserrat', sans-serif"}}>Wind Speed</p>
-                    <p className="text-white text-3xl font-black" style={{fontFamily: "'Bebas Neue', sans-serif"}}>{weatherData.windSpeed} <span className="text-xl">m/s</span></p>
+                    <p className="text-white/60 text-xs tracking-widest uppercase mb-2" style={{ fontFamily: "'Montserrat', sans-serif" }}>Wind Speed</p>
+                    <p className="text-white text-3xl font-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{weatherData.windSpeed} <span className="text-xl">m/s</span></p>
                   </div>
 
                   {/* Pressure */}
-                  <div className="backdrop-blur-2xl bg-white/10 rounded-2xl p-6 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 animate-fade-in" style={{animationDelay: '0.3s'}}>
+                  <div className="backdrop-blur-2xl bg-white/10 rounded-2xl p-6 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.3s' }}>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-12 h-12 rounded-xl bg-purple-400/20 flex items-center justify-center">
                         <svg className="w-7 h-7 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -338,12 +338,12 @@ export const Weather = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-white/60 text-xs tracking-widest uppercase mb-2" style={{fontFamily: "'Montserrat', sans-serif"}}>Pressure</p>
-                    <p className="text-white text-3xl font-black" style={{fontFamily: "'Bebas Neue', sans-serif"}}>{weatherData.pressure} <span className="text-xl">hPa</span></p>
+                    <p className="text-white/60 text-xs tracking-widest uppercase mb-2" style={{ fontFamily: "'Montserrat', sans-serif" }}>Pressure</p>
+                    <p className="text-white text-3xl font-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{weatherData.pressure} <span className="text-xl">hPa</span></p>
                   </div>
 
                   {/* Visibility */}
-                  <div className="backdrop-blur-2xl bg-white/10 rounded-2xl p-6 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 animate-fade-in" style={{animationDelay: '0.4s'}}>
+                  <div className="backdrop-blur-2xl bg-white/10 rounded-2xl p-6 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.4s' }}>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-12 h-12 rounded-xl bg-indigo-400/20 flex items-center justify-center">
                         <svg className="w-7 h-7 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -352,21 +352,21 @@ export const Weather = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-white/60 text-xs tracking-widest uppercase mb-2" style={{fontFamily: "'Montserrat', sans-serif"}}>Visibility</p>
-                    <p className="text-white text-3xl font-black" style={{fontFamily: "'Bebas Neue', sans-serif"}}>{weatherData.visibility} <span className="text-xl">km</span></p>
+                    <p className="text-white/60 text-xs tracking-widest uppercase mb-2" style={{ fontFamily: "'Montserrat', sans-serif" }}>Visibility</p>
+                    <p className="text-white text-3xl font-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{weatherData.visibility} <span className="text-xl">km</span></p>
                   </div>
                 </div>
               </>
             ) : !loading && !error ? (
               /* Empty State */
-              <div className="backdrop-blur-2xl bg-white/10 rounded-3xl p-20 border border-white/20 shadow-2xl text-center">
-                <svg className="w-32 h-32 text-white/20 mx-auto mb-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="backdrop-blur-2xl bg-white/10 rounded-3xl p-8 md:p-12 lg:p-20 border border-white/20 shadow-2xl text-center">
+                <svg className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 text-white/20 mx-auto mb-6 md:mb-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <h3 className="text-4xl font-black text-white/80 mb-4" style={{fontFamily: "'Bebas Neue', sans-serif"}}>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white/80 mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   DISCOVER THE ATMOSPHERE
                 </h3>
-                <p className="text-white/50 text-lg tracking-wide" style={{fontFamily: "'Montserrat', sans-serif"}}>
+                <p className="text-white/50 text-base md:text-lg tracking-wide px-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                   Search for any city to view detailed weather data
                 </p>
               </div>
@@ -374,8 +374,8 @@ export const Weather = () => {
           </div>
         </div>
 
-        
-        
+
+
       </div>
 
       <style jsx>{`
